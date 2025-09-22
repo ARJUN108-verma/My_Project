@@ -1,1 +1,35 @@
+#1. Data Collection
+Capture images of all people whose attendance needs to be recorded (students, employees, etc.).
+Take multiple images per person to account for different angles, lighting, expressions.
+Store images in a structured way (e.g., folder per person with their name as folder name).
 
+#2. Face Encoding / Feature Extraction
+Use a face recognition library (like face_recognition in Python) to detect faces in images.
+Convert faces into encodings (numerical vectors representing unique facial features).
+Store these encodings along with the person’s name in a database or file (CSV/pickle).
+
+#3. Real-Time Face Detection
+Use a webcam or camera feed to continuously capture frames.
+Detect faces in each frame using a face detection algorithm (like HOG, SSD, or CNN-based detectors).
+
+#4. Face Recognition
+For each detected face:
+Compare its encoding with the stored encodings.
+If a match is found within a tolerance range, identify the person.
+If no match is found, mark as “Unknown” or optionally update database for learning.
+
+#5. Attendance Logging
+Once a person is recognized:
+Record their name, date, and time in an attendance log (CSV, Excel, or database).
+Ensure that the same person is not logged multiple times in a short period (avoid duplicates).
+
+#6. Optional Advanced Features
+Notifications: Send email/SMS when a person is present or absent.
+Mask Detection: Recognize faces even if partially covered.
+Multiple Cameras: Integrate multiple feeds for large rooms.
+Dashboard: Display attendance statistics in real time using GUI or web app.
+
+#7. Deployment
+Run on a PC/laptop with a webcam for small setups.
+For classrooms/offices, use a dedicated camera with a Raspberry Pi or server.
+Optionally integrate with existing attendance management software.
